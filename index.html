@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Siimple TimeTracker</title>
+    <link rel="stylesheet" href="/node_modules/siimple/dist/siimple.css">
+    <style>
+        * {
+            font-family: "Segoe UI";
+        }
+
+        .siimple-spacer {
+            content: "&nbsp;";
+        }
+
+        .siimple-spacer--50 {
+            margin: 50px;
+        }
+
+        .siimple-spacer--10 {
+            margin: 10px;
+        }
+
+        .siimple-box {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="siimple-content siimple-content--large">
+        <div class="siimple-box">
+            <div class="siimple-box-title">SiimpleTracker</div>
+            <div class="siimple-box-detail">vue.js and Siimple.css based Timetracker</div>
+        </div>
+        <div class="siimple-grid-row">
+            <div class="siimple-grid-col siimple-grid-col--12">
+                <div class="siimple-spacer siimple-spacer--10"></div>
+            </div>
+        </div>
+        <div id="todo" class="siimple-grid">
+            <div class="siimple-grid-row">
+                <div class="siimple-grid-col siimple-grid-col--12">
+                    <input-component></input-component>
+                </div>
+            </div>
+            <div class="siimple-grid-row">
+                <div class="siimple-grid-col siimple-grid-col--12">
+                    <button v-for="option in groupOptions" :data-value="option.code" class="siimple-btn" @click="applyFilter(option.code)">
+                        {{option.label}}
+                    </button>
+                </div>
+            </div>
+            <div class="siimple-grid-row">
+                <div class="siimple-grid-col siimple-grid-col--12">
+                    <list-group-component :group-property="groupFilter"></list-group-component>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="siimple-footer" align="center">
+        Made with vue and siimple
+    </div>
+    <script src="/dist/todo.build.js"></script>
+</body>
+
+</html>
